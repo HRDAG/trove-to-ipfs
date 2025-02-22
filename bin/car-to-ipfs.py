@@ -7,22 +7,22 @@
 #
 # trove-to-ipfs/bin/org-files-to-car.py
 
-import logging
-from functools import partial
-import gzip
-import subprocess
-import tomllib as toml
-import time
-from pathlib import Path
 import argparse
-from operator import itemgetter
-import tempfile
-import os
+from functools import partial
 import filecmp
+import gzip
+import logging
+from pathlib import Path
+from operator import itemgetter
+import os
 import random
+import signal
+import subprocess
+import tempfile
+import time
+import tomllib as toml
 import shutil
 from typing import Tuple
-import signal
 
 # --- these are not part of the std library
 import psycopg  # noqa: E402
