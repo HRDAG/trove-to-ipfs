@@ -4,6 +4,8 @@ I have been given a trove of ~5M little files, about 5.5TB, and I don't want to 
 
 [^extremist]: I know that this code and README are hosted by GitHub which is owned my Microsoft. No, I don't trust Microsoft either. The nature of git is that anyone who clones this repo has a complete copy of it, and that copy could be reshared to other git users. The world is so dominated by big tech companies that we cannot fully avoid them without considerable inconvenience. 
 
+We decided we'd like to experiment with [IPFS](https://ipfs.tech/), a decentralized storage platform. We have been gifted with a pinning service for this project until we can get our own IPFS nodes running. 
+
 This README explains a little bit of the code I wrote to shepherd the files from janky external USB drives to IPFS. This is a little tricky only because I wanted to keep track of the metadata at every step. And I am exploring the IPFS toolkits to get a sense of what they do well, and what they don't do all that well. 
 
 It doesn't matter what the files are. What does matter is that (i) together they are about 5TB, which is a lot to manage; and (ii) I want to store them in IPFS so that my partners can use them; and (iii) I want to keep the metadata in a postgres database so that we can find what we're looking for (there are other reasons to keep the metadata in postgres, but those are outside the scope of this post).
