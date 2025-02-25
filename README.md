@@ -29,7 +29,7 @@ You have to provide your credentials to the postgres server in a separate file t
 
 The script just reads the `fs` table from postgres, calculates a cumulative sum of file sizes, divides the cumulative sum by `1024 * 1024` (a megabyte), and takes the int part as the carblock id. I did a tiny bit of exploring the distribution of carblock sizes, then wrote the carblock id back to postgres. 
 
-![[carblock-hist-size.png]]
+![[input/carblock-hist-size.png]]
 The histogram on the right suggests that the carblocks are properly clustered at about 500MB/carblock. On the left graph, the number of files per carblock is a little messier (there are 45 carblocks with >5K files). This doesn't seem like it will be a problem, but I guess we'll find out. 
 ### copying carblocks to IPFS 
 
