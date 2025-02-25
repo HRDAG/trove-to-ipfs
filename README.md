@@ -34,7 +34,7 @@ The script just reads the `fs` table from postgres, calculates a cumulative sum 
 The histogram on the right suggests that the carblocks are properly clustered at about 500MB/carblock. On the left graph, the number of files per carblock is a little messier (there are 45 carblocks with >5K files). This doesn't seem like it will be a problem, but I guess we'll find out. 
 ### copying carblocks to IPFS 
 
-The next step is a little bigger, and my thinking is in `bin/car-to-ipfs.py`. As with the previous step, there's a credentials file, this one to connect you to the IPFS network you're using. In my case, I'm using [storacha's w3cli](https://github.com/storacha/w3cli), and my work is in `bin/car-to-ipfs.py`.
+(Note: all the code is in a [public GitHub repo here](https://github.com/HRDAG/trove-to-ipfs), and the paths in the text can be found in the repo). The next step is a little bigger, and my thinking is in `bin/car-to-ipfs.py`. As with the previous step, there's a credentials file, this one to connect you to the IPFS network you're using. In my case, I'm using [storacha's w3cli](https://github.com/storacha/w3cli), and my work is in `bin/car-to-ipfs.py`.
 
 I've added some fields to the postgres table: the time the carblock is made `blocked_tm`; the time it is uploaded `uploaded_tm`, and the URL of the carblock `car_url`. 
 
