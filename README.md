@@ -29,7 +29,8 @@ You have to provide your credentials to the postgres server in a separate file t
 
 The script just reads the `fs` table from postgres, calculates a cumulative sum of file sizes, divides the cumulative sum by `1024 * 1024` (a megabyte), and takes the int part as the carblock id. I did a tiny bit of exploring the distribution of carblock sizes, then wrote the carblock id back to postgres. 
 
-![[input/carblock-hist-size.png]]
+![](input/carblock-hist-size.png)
+
 The histogram on the right suggests that the carblocks are properly clustered at about 500MB/carblock. On the left graph, the number of files per carblock is a little messier (there are 45 carblocks with >5K files). This doesn't seem like it will be a problem, but I guess we'll find out. 
 ### copying carblocks to IPFS 
 
@@ -125,7 +126,9 @@ And this also turned out to be fussy! `curl` failed on most of them -- for aroun
 #### more attempts
 
 I didn't give up. I tried to get the car file with [`lassie`](https://github.com/filecoin-project/lassie/), and for the really complicated cars that are befuddling the `kubo` tools, I found that lassie's `fetch` also failed. Maybe some of the carfiles contain too many file references for the ipfs dag parsing mechanisms? Maybe, but only in some cases.
-![[cids_by_total 1.png]]
+
+![](input/cids_by_total.png)
+
 There doesn't seem to be a correlation between how many files are in a carblock and whether that carblock's metadata is fully retrievable. The smallest carblocks are all fine, up to about 1K records (which I'd noticed earlier). At that point, some of the carblocks start having trouble fully returning the metadata. The same carblocks consistently fail to return, and they do so using all three methods (`ipfs dag get $CID`; `ipfs ls $CID`; and `curl -o $CID.html https://w3s.link/ipfs/$CID`). However, most of the carblocks with lots of files return their metadata without problems, including one really huge carblock (omitted from the graph) with 70K files which returns `ipfs dag get` just fine. So it's not size (or not size alone) that makes some carblocks fail to return the data. 
 
 I dunno what's stopping these tools from retrieving the metadata from the last few carblocks. 
