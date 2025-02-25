@@ -105,13 +105,13 @@ To recall, every filename should end with `.gz`, and none of them are named with
 
 The `kubo` tool can also return a human-readable version of the hash, filesize, and filename with `kubo ls $CID`.  It looks like this: 
 ```bash
-bafkr<redacted>h6ee 2086     172<redacted>8.gz
-bafkr<redacted>65xy 2087     172<redacted>1.gz
-bafkr<redacted>6cki 2093     172<redacted>3.gz
-bafkr<redacted>helq 2085     172<redacted>4.gz
-bafkr<redacted>tima 2087     172<redacted>6.gz
+bafkr...h6ee 2086     172...8.gz
+bafkr...65xy 2087     172...1.gz
+bafkr...6cki 2093     172...3.gz
+bafkr...helq 2085     172...4.gz
+bafkr...tima 2087     172...6.gz
 ```
-Great! So I ran `kubo ls $CID` for the carfiles that were missing the hash for a specific file. I substantially improved how I was handling the updates to postgres, and the code in general is a lot better in `bin/add_cids_from_csv.py`. 
+(the `...` in the listing above is redaction) **Great!** So I ran `kubo ls $CID` for the carfiles that were missing the hash for a specific file. I substantially improved how I was handling the updates to postgres, and the code in general is a lot better in `bin/add_cids_from_csv.py`. 
 
 But this didn't get everything either. Around 200 of the carfile CIDs hung and never responded to `kubo ls $CID`. Others returned only partial listings. I was able to recover about 1.2M of the approximately 1.8M file references that we'd missed on the previous step, leaving around 600K to go. 
 
