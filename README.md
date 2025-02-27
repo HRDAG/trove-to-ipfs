@@ -2,7 +2,7 @@
 
 HRDAG has been given a trove of about 5 million little files, about 5.5TB, and I don't want to lose them. The files aren't public, but they're not entirely confidential, so it's ok if they're available in a semi-public way. I want to share these files with my partner organizations, so the files need to be accessible. We would rather not use cloud services like Amazon's S3, Dropbox, or Google Drives because, well, we're a human rights group, and we don't trust big companies to prioritize protecting human rights information over frivolous attacks by extremist governments.[^extremist]
 
-[^extremist]: I know that this code and README are hosted by GitHub which is owned my Microsoft. No, I don't trust Microsoft either. The nature of git is that anyone who clones this repo has a complete copy of it, and that copy could be reshared to other git users. The world is so dominated by big tech companies that we cannot fully avoid them without considerable inconvenience.
+[^extremist]: I know that this code and README are hosted by GitHub which is owned my Microsoft. No, I don't trust Microsoft either. The nature of git is that anyone who clones this repo has a complete copy of it, and that copy could be reshared to other git users. The world is so dominated by big tech companies that we cannot fully avoid them without [considerable inconvenience](https://www.kashmirhill.com/stories/goodbyebigfive).
 
 We decided we'd like to experiment with [IPFS](https://ipfs.tech/), a decentralized storage network and protocol for sharing data. As the [Filecoin Foundation for the Decentralized Web](https://ffdweb.org/about/) explains,
 
